@@ -5,15 +5,17 @@
  * */
 const Alexa = require('ask-sdk-core');
 
+//Lanza la skill
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
+        //Texto de la respuestas al usuario
         const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
 
         return handlerInput.responseBuilder
-            .speak(speakOutput)
+            .speak(speakOutput) //Construye la respuesta con el texto de la variable
             .reprompt(speakOutput)
             .getResponse();
     }
